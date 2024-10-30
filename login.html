@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Mencegah form melakukan submit otomatis
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simulasi validasi login
+            if (username !== 'testuser' || password !== 'password123') {
+                document.querySelector('.error-message').style.display = 'block'; // Tampilkan pesan error
+            } else {
+                document.querySelector('.error-message').style.display = 'none'; // Sembunyikan pesan error jika login berhasil
+                alert('Login berhasil'); // Misalnya, lakukan redirect di sini jika login berhasil
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="handleLogin(event)">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br><br>
+        <button type="submit" id="loginButton">Login</button>
+    </form>
+    
+    <!-- Pesan error login yang tampil saat username atau password salah -->
+    <p class="error-message" style="display: none; color: red;">Invalid username or password</p>
+</body>
+</html>
